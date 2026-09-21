@@ -55,7 +55,8 @@
 
             background: rgba(7, 26, 51, 0.97);
 
-            border-bottom: 1px solid rgba(244, 196, 0, 0.25);
+            border-bottom:
+                1px solid rgba(244, 196, 0, 0.25);
 
             z-index: 1000;
         }
@@ -99,7 +100,9 @@
         }
 
 
-        /* 桌機選單 */
+        /* =========================
+           DESKTOP NAV
+        ========================= */
 
         .nav-links {
             display: flex;
@@ -125,7 +128,9 @@
         }
 
 
-        /* 漢堡按鈕 */
+        /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
 
         .menu-toggle {
             display: none;
@@ -229,14 +234,21 @@
             width: 700px;
             height: 700px;
 
-            border: 1px solid rgba(244, 196, 0, 0.18);
+            border:
+                1px solid rgba(
+                    244,
+                    196,
+                    0,
+                    0.18
+                );
 
             border-radius: 50%;
 
             top: 50%;
             left: 50%;
 
-            transform: translate(-50%, -45%);
+            transform:
+                translate(-50%, -45%);
         }
 
         .hero::after {
@@ -247,11 +259,13 @@
             width: 900px;
             height: 2px;
 
-            background: rgba(244, 196, 0, 0.35);
+            background:
+                rgba(244, 196, 0, 0.35);
 
             transform: rotate(-12deg);
 
             left: -100px;
+
             bottom: 150px;
         }
 
@@ -276,7 +290,7 @@
         }
 
         .hero-logo img {
-            width: 180px;
+            width: 200px;
 
             height: auto;
 
@@ -284,24 +298,18 @@
 
             filter:
                 drop-shadow(
-                    0 15px 25px rgba(0, 0, 0, 0.35)
+                    0 15px 25px
+                    rgba(0, 0, 0, 0.35)
                 );
         }
 
-        .hero-kicker {
-            margin-bottom: 12px;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            letter-spacing: 5px;
-
-            color: #f4c400;
-        }
-
         .hero h1 {
-            font-size: clamp(58px, 9vw, 110px);
+            font-size:
+                clamp(
+                    58px,
+                    9vw,
+                    110px
+                );
 
             line-height: 0.95;
 
@@ -317,19 +325,30 @@
         }
 
         .hero-en {
-            font-size: clamp(14px, 2vw, 20px);
+            font-size:
+                clamp(
+                    14px,
+                    2vw,
+                    20px
+                );
 
             font-weight: 700;
 
             letter-spacing: 7px;
 
-            color: rgba(255,255,255,0.82);
+            color:
+                rgba(255,255,255,0.82);
 
             margin-bottom: 30px;
         }
 
         .hero-slogan {
-            font-size: clamp(19px, 3vw, 28px);
+            font-size:
+                clamp(
+                    19px,
+                    3vw,
+                    28px
+                );
 
             font-weight: 700;
 
@@ -383,15 +402,19 @@
             transform: translateY(-3px);
 
             box-shadow:
-                0 10px 25px rgba(244, 196, 0, 0.25);
+                0 10px 25px
+                rgba(244, 196, 0, 0.25);
         }
 
         .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.45);
+            border:
+                1px solid
+                rgba(255,255,255,0.45);
 
             color: #ffffff;
 
-            background: rgba(255,255,255,0.06);
+            background:
+                rgba(255,255,255,0.06);
         }
 
         .btn-secondary:hover {
@@ -402,7 +425,7 @@
 
 
         /* =========================
-           SECTION
+           GENERAL SECTION
         ========================= */
 
         section:not(.hero) {
@@ -460,17 +483,130 @@
 
 
         /* =========================
+           TEAM MOMENTS
+        ========================= */
+
+        .moments {
+            background: #ffffff;
+
+            padding-top: 55px !important;
+            padding-bottom: 65px !important;
+
+            overflow: hidden;
+        }
+
+        .moments-header {
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+        .moments-header .small-title {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            color: #1565c0;
+
+            margin-bottom: 6px;
+        }
+
+        .moments-header h2 {
+            font-size: 25px;
+
+            color: #0b3a82;
+
+            font-weight: 900;
+        }
+
+        .moments-header .line {
+            width: 55px;
+            height: 4px;
+
+            background: #f4c400;
+
+            margin-top: 10px;
+        }
+
+        .moments-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr;
+
+            grid-template-rows:
+                180px 180px;
+
+            gap: 12px;
+        }
+
+        .moment {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+            background: #0b3a82;
+        }
+
+        .moment img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.45s ease;
+        }
+
+        .moment::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(7,26,51,0.28),
+                    transparent 55%
+                );
+
+            pointer-events: none;
+        }
+
+        .moment:hover img {
+            transform: scale(1.06);
+        }
+
+        .moment-large {
+            grid-row: span 2;
+        }
+
+
+        /* =========================
            ABOUT
         ========================= */
 
         .about {
-            background: #ffffff;
+            background: #f4f6f8;
         }
 
         .about-grid {
             display: grid;
 
-            grid-template-columns: 1fr 1.3fr;
+            grid-template-columns:
+                1fr 1.3fr;
 
             gap: 55px;
 
@@ -507,7 +643,9 @@
             width: 250px;
             height: 250px;
 
-            border: 1px solid rgba(244,196,0,0.25);
+            border:
+                1px solid
+                rgba(244,196,0,0.25);
 
             border-radius: 50%;
         }
@@ -551,7 +689,7 @@
         ========================= */
 
         .news {
-            background: #f4f6f8;
+            background: #ffffff;
         }
 
         .news-grid {
@@ -570,7 +708,8 @@
 
             padding: 30px;
 
-            border: 1px solid #e1e6eb;
+            border:
+                1px solid #e1e6eb;
 
             transition: 0.25s;
         }
@@ -581,7 +720,8 @@
             border-color: #f4c400;
 
             box-shadow:
-                0 12px 30px rgba(7,26,51,0.08);
+                0 12px 30px
+                rgba(7,26,51,0.08);
         }
 
         .news-date {
@@ -639,7 +779,8 @@
         }
 
         .cta p {
-            color: rgba(255,255,255,0.75);
+            color:
+                rgba(255,255,255,0.75);
 
             margin-bottom: 30px;
         }
@@ -671,7 +812,8 @@
 
             background: #071a33;
 
-            color: rgba(255,255,255,0.6);
+            color:
+                rgba(255,255,255,0.6);
 
             text-align: center;
 
@@ -680,7 +822,7 @@
 
 
         /* =========================
-           MOBILE NAV
+           TABLET / MOBILE
         ========================= */
 
         @media (max-width: 768px) {
@@ -706,6 +848,9 @@
                 white-space: nowrap;
             }
 
+
+            /* 手機選單 */
+
             .nav-links {
                 position: absolute;
 
@@ -726,21 +871,19 @@
                 background: #071a33;
 
                 border-top:
-                    1px solid rgba(
-                        244,
-                        196,
-                        0,
-                        0.2
-                    );
+                    1px solid
+                    rgba(244,196,0,0.2);
 
                 box-shadow:
-                    0 15px 30px rgba(0,0,0,0.25);
+                    0 15px 30px
+                    rgba(0,0,0,0.25);
 
                 opacity: 0;
 
                 visibility: hidden;
 
-                transform: translateY(-10px);
+                transform:
+                    translateY(-10px);
 
                 transition: 0.25s;
             }
@@ -750,7 +893,8 @@
 
                 visibility: visible;
 
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
 
             .nav-links a {
@@ -761,23 +905,15 @@
                 padding: 18px 22px;
 
                 border-bottom:
-                    1px solid rgba(
-                        255,
-                        255,
-                        255,
-                        0.08
-                    );
+                    1px solid
+                    rgba(255,255,255,0.08);
 
                 font-size: 15px;
             }
 
             .nav-links a:hover {
-                background: rgba(
-                    244,
-                    196,
-                    0,
-                    0.08
-                );
+                background:
+                    rgba(244,196,0,0.08);
             }
 
             .menu-toggle {
@@ -811,6 +947,50 @@
 
             .hero-slogan {
                 font-size: 19px;
+            }
+
+
+            /* MOMENTS */
+
+            .moments {
+                padding-top: 45px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .moments-header {
+                margin-bottom: 20px;
+            }
+
+            .moments-header h2 {
+                font-size: 23px;
+            }
+
+            .moments-grid {
+                display: flex;
+
+                overflow-x: auto;
+
+                gap: 12px;
+
+                padding-bottom: 8px;
+
+                scroll-snap-type: x mandatory;
+
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .moment {
+                min-width: 78vw;
+
+                height: 190px;
+
+                flex-shrink: 0;
+
+                scroll-snap-align: start;
+            }
+
+            .moment-large {
+                grid-row: auto;
             }
 
 
@@ -866,6 +1046,9 @@
                 margin-right: -4px;
             }
 
+
+            /* HERO */
+
             .hero-logo img {
                 width: 135px;
             }
@@ -889,6 +1072,18 @@
             .btn {
                 width: 210px;
             }
+
+
+            /* MOMENTS */
+
+            .moment {
+                min-width: 82vw;
+
+                height: 170px;
+            }
+
+
+            /* SECTION */
 
             .section-title h2 {
                 font-size: 29px;
@@ -931,8 +1126,6 @@
         </a>
 
 
-        <!-- 桌機 / 手機選單 -->
-
         <div
             class="nav-links"
             id="navLinks"
@@ -956,8 +1149,6 @@
 
         </div>
 
-
-        <!-- 手機漢堡 -->
 
         <button
             class="menu-toggle"
@@ -993,11 +1184,6 @@
             </div>
 
 
-            <div class="hero-kicker">
-                IT BASEBALL TEAM
-            </div>
-
-
             <h1>
                 洲際虎
             </h1>
@@ -1029,6 +1215,96 @@
                 >
                     認識洲際虎
                 </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TEAM MOMENTS
+    ========================= -->
+
+    <section class="moments">
+
+        <div class="container">
+
+            <div class="moments-header">
+
+                <div>
+
+                    <div class="small-title">
+                        TEAM MOMENTS
+                    </div>
+
+                    <h2>
+                        我們的每一刻
+                    </h2>
+
+                    <div class="line"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="moments-grid">
+
+                <div class="moment moment-large">
+
+                    <img
+                        src="group1.jpg"
+                        alt="洲際虎球隊照片 1"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="moment">
+
+                    <img
+                        src="group2.jpg"
+                        alt="洲際虎球隊照片 2"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="moment">
+
+                    <img
+                        src="group3.jpg"
+                        alt="洲際虎球隊照片 3"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="moment">
+
+                    <img
+                        src="group4.jpg"
+                        alt="洲際虎球隊照片 4"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="moment">
+
+                    <img
+                        src="group5.jpg"
+                        alt="洲際虎球隊照片 5"
+                        loading="lazy"
+                    >
+
+                </div>
 
             </div>
 
@@ -1076,7 +1352,8 @@
                 <div class="about-content">
 
                     <h3>
-                        我們是 <span>洲際虎</span>
+                        我們是
+                        <span>洲際虎</span>
                     </h3>
 
                     <p>
@@ -1298,8 +1575,6 @@
             }
         );
 
-
-        /* 點選選單後自動關閉 */
 
         navLinks.querySelectorAll("a").forEach(
             function (link) {
