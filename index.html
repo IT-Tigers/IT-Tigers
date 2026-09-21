@@ -45,9 +45,12 @@
             left: 0;
             width: 100%;
             height: 76px;
+
             background: rgba(7, 26, 51, 0.96);
             backdrop-filter: blur(10px);
+
             z-index: 1000;
+
             border-bottom: 1px solid rgba(244, 196, 0, 0.25);
         }
 
@@ -69,29 +72,46 @@
 
             font-size: 22px;
             font-weight: 900;
+
             color: #ffffff;
             letter-spacing: 1px;
         }
 
-        .logo-mark {
-            width: 42px;
-            height: 42px;
-            background: #f4c400;
-            color: #071a33;
+        /* =========================
+           Logo
+        ========================= */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .logo-image {
+            width: 28px;
+            height: 28px;
 
-            font-size: 19px;
-            font-weight: 1000;
+            object-fit: contain;
+            display: block;
+        }
 
-            transform: skew(-8deg);
+        .logo-text {
+            white-space: nowrap;
         }
 
         .logo-text span {
             color: #f4c400;
         }
+
+        .hero-logo {
+            margin-bottom: 20px;
+        }
+
+        .hero-logo img {
+            width: 180px;
+            max-width: 45vw;
+            height: auto;
+
+            display: block;
+        }
+
+        /* =========================
+           Navigation Links
+        ========================= */
 
         nav {
             display: flex;
@@ -101,20 +121,27 @@
 
         nav a {
             position: relative;
+
             color: #ffffff;
+
             font-size: 15px;
             font-weight: 700;
+
             transition: 0.25s ease;
         }
 
         nav a::after {
             content: "";
+
             position: absolute;
             left: 0;
             bottom: -8px;
+
             width: 0;
             height: 3px;
+
             background: #f4c400;
+
             transition: 0.25s ease;
         }
 
@@ -132,6 +159,7 @@
 
         .hero {
             min-height: 760px;
+
             padding: 76px 24px 80px;
 
             position: relative;
@@ -151,31 +179,40 @@
 
         .hero::before {
             content: "";
+
             position: absolute;
+
             width: 650px;
             height: 650px;
+
             right: -220px;
             top: 40px;
 
             border: 100px solid rgba(244, 196, 0, 0.08);
+
             border-radius: 50%;
         }
 
         .hero::after {
             content: "";
+
             position: absolute;
+
             width: 600px;
             height: 180px;
+
             left: -150px;
             bottom: -70px;
 
             background: rgba(244, 196, 0, 0.08);
+
             transform: rotate(-12deg);
         }
 
         .hero-inner {
             width: 100%;
             max-width: 1200px;
+
             margin: 0 auto;
 
             position: relative;
@@ -193,6 +230,7 @@
 
             font-size: 13px;
             font-weight: 900;
+
             letter-spacing: 2px;
         }
 
@@ -200,9 +238,11 @@
             color: #ffffff;
 
             font-size: clamp(64px, 10vw, 128px);
+
             line-height: 0.95;
 
             font-weight: 1000;
+
             letter-spacing: -5px;
 
             margin-bottom: 20px;
@@ -210,35 +250,49 @@
 
         .hero h1 span {
             display: block;
+
             color: #f4c400;
         }
 
         .hero-subtitle {
             color: #ffffff;
+
             font-size: clamp(20px, 3vw, 32px);
+
             font-weight: 800;
+
             margin-bottom: 12px;
         }
 
         .hero-description {
             color: rgba(255,255,255,0.78);
+
             max-width: 580px;
+
             font-size: 16px;
+
             margin-bottom: 38px;
         }
 
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
+
             gap: 14px;
         }
 
+        /* =========================
+           Buttons
+        ========================= */
+
         .btn {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
             min-width: 150px;
+
             padding: 14px 26px;
 
             font-size: 15px;
@@ -254,17 +308,21 @@
 
         .btn-primary:hover {
             background: #ffffff;
+
             transform: translateY(-3px);
         }
 
         .btn-outline {
             border: 2px solid rgba(255,255,255,0.8);
+
             color: #ffffff;
         }
 
         .btn-outline:hover {
             background: #ffffff;
+
             color: #0b3a82;
+
             transform: translateY(-3px);
         }
 
@@ -278,6 +336,7 @@
 
         .section-inner {
             max-width: 1200px;
+
             margin: 0 auto;
         }
 
@@ -289,8 +348,10 @@
             display: block;
 
             color: #1565c0;
+
             font-size: 13px;
             font-weight: 900;
+
             letter-spacing: 3px;
 
             margin-bottom: 8px;
@@ -298,8 +359,11 @@
 
         .section-heading h2 {
             font-size: clamp(34px, 5vw, 54px);
+
             line-height: 1.15;
+
             font-weight: 1000;
+
             color: #071a33;
         }
 
@@ -317,26 +381,34 @@
 
         .about-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 70px;
+
             align-items: center;
         }
 
         .about-text p {
             color: #586273;
+
             font-size: 17px;
+
             margin-bottom: 22px;
         }
 
         .about-highlight {
             margin-top: 30px;
+
             padding: 22px 24px;
 
             border-left: 5px solid #f4c400;
+
             background: #f4f6f8;
 
             font-size: 20px;
             font-weight: 900;
+
             color: #0b3a82;
         }
 
@@ -344,10 +416,12 @@
             min-height: 360px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             position: relative;
+
             overflow: hidden;
 
             background:
@@ -364,7 +438,9 @@
             position: absolute;
 
             font-size: 240px;
+
             font-weight: 1000;
+
             line-height: 1;
 
             color: rgba(255,255,255,0.04);
@@ -372,7 +448,9 @@
 
         .about-box-content {
             position: relative;
+
             z-index: 2;
+
             text-align: center;
         }
 
@@ -380,16 +458,21 @@
             display: block;
 
             font-size: 74px;
+
             line-height: 1;
 
             color: #f4c400;
+
             font-weight: 1000;
         }
 
         .about-box-content span {
             color: #ffffff;
+
             font-size: 18px;
+
             font-weight: 800;
+
             letter-spacing: 3px;
         }
 
@@ -403,12 +486,15 @@
 
         .news-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 24px;
         }
 
         .news-card {
             background: #ffffff;
+
             border: 1px solid #e1e5ea;
 
             transition: 0.25s ease;
@@ -416,11 +502,14 @@
 
         .news-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(7,26,51,0.10);
+
+            box-shadow:
+                0 15px 35px rgba(7,26,51,0.10);
         }
 
         .news-card-top {
             height: 8px;
+
             background: #0b3a82;
         }
 
@@ -438,21 +527,29 @@
 
         .news-date {
             color: #1565c0;
+
             font-size: 13px;
+
             font-weight: 900;
+
             letter-spacing: 1px;
+
             margin-bottom: 12px;
         }
 
         .news-card h3 {
             color: #071a33;
+
             font-size: 21px;
+
             line-height: 1.4;
+
             margin-bottom: 12px;
         }
 
         .news-card p {
             color: #687385;
+
             font-size: 14px;
         }
 
@@ -473,14 +570,19 @@
 
         .cta-inner {
             max-width: 1000px;
+
             margin: 0 auto;
+
             text-align: center;
         }
 
         .cta h2 {
             color: #ffffff;
+
             font-size: clamp(34px, 5vw, 58px);
+
             font-weight: 1000;
+
             margin-bottom: 15px;
         }
 
@@ -490,6 +592,7 @@
 
         .cta p {
             color: rgba(255,255,255,0.75);
+
             margin-bottom: 32px;
         }
 
@@ -503,7 +606,9 @@
 
         .contact-box {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 30px;
         }
 
@@ -511,6 +616,7 @@
             padding: 30px;
 
             background: #f4f6f8;
+
             border-left: 5px solid #0b3a82;
         }
 
@@ -520,7 +626,9 @@
 
         .contact-item h3 {
             color: #071a33;
+
             font-size: 20px;
+
             margin-bottom: 8px;
         }
 
@@ -534,15 +642,19 @@
 
         footer {
             background: #071a33;
+
             color: rgba(255,255,255,0.65);
+
             padding: 30px 24px;
         }
 
         .footer-inner {
             max-width: 1200px;
+
             margin: 0 auto;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
 
@@ -551,6 +663,7 @@
 
         .footer-logo {
             color: #ffffff;
+
             font-weight: 900;
         }
 
@@ -570,19 +683,25 @@
 
             header {
                 height: auto;
+
                 min-height: 70px;
             }
 
             .header-inner {
                 padding: 14px 18px;
+
                 flex-direction: column;
+
                 gap: 12px;
             }
 
             nav {
                 width: 100%;
+
                 justify-content: center;
+
                 gap: 18px;
+
                 flex-wrap: wrap;
             }
 
@@ -592,6 +711,7 @@
 
             .hero {
                 min-height: 700px;
+
                 padding-top: 150px;
             }
 
@@ -601,6 +721,7 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
+
                 gap: 40px;
             }
 
@@ -614,6 +735,7 @@
 
             .footer-inner {
                 flex-direction: column;
+
                 text-align: center;
             }
         }
@@ -653,24 +775,10 @@
                 font-size: 58px;
             }
 
-            .logo-image {
-                width: 28px;
-                height: 28px;
-                object-fit: contain;
-                display: block;
-                transform: scale(0.67);
+            .hero-logo img {
+                width: 150px;
+                max-width: 55vw;
             }
-
-            .hero-logo {
-    margin-bottom: 20px;
-}
-
-.hero-logo img {
-    width: 180px;
-    max-width: 45vw;
-    height: auto;
-    display: block;
-}
         }
     </style>
 </head>
@@ -682,24 +790,46 @@
 ========================= -->
 
 <header>
+
     <div class="header-inner">
 
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="IT 洲際虎 Logo" class="logo-image">
+
+            <img
+                src="logo.png"
+                alt="IT 洲際虎 Logo"
+                class="logo-image"
+            >
 
             <div class="logo-text">
                 洲際<span>虎</span>
             </div>
+
         </a>
 
+
         <nav>
-            <a href="#about">關於我們</a>
-            <a href="events.html">活動行程</a>
-            <a href="#news">最新消息</a>
-            <a href="#contact">聯絡我們</a>
+
+            <a href="#about">
+                關於我們
+            </a>
+
+            <a href="events.html">
+                活動行程
+            </a>
+
+            <a href="#news">
+                最新消息
+            </a>
+
+            <a href="#contact">
+                聯絡我們
+            </a>
+
         </nav>
 
     </div>
+
 </header>
 
 
@@ -715,25 +845,38 @@
             INTERCONTINENTAL TIGERS
         </div>
 
-        <div class="hero-logo">
-    <img src="logo.png" alt="IT 洲際虎 Logo">
-</div>
 
-<h1>
-    <span>洲際虎</span>
-</h1>
+        <div class="hero-logo">
+
+            <img
+                src="logo.png"
+                alt="IT 洲際虎 Logo"
+            >
+
+        </div>
+
+
+        <h1>
+            <span>洲際虎</span>
+        </h1>
+
 
         <div class="hero-subtitle">
             不只是棒球隊，更是一個團隊。
         </div>
 
+
         <p class="hero-description">
+
             熱愛棒球、相信團隊、持續突破。
             這裡是 IT 洲際虎，記錄我們每一次比賽、
             每一次練習，以及一起成長的每一刻。
+
         </p>
 
+
         <div class="hero-buttons">
+
             <a href="#about" class="btn btn-primary">
                 認識洲際虎
             </a>
@@ -741,6 +884,7 @@
             <a href="events.html" class="btn btn-outline">
                 查看活動行程
             </a>
+
         </div>
 
     </div>
@@ -757,6 +901,7 @@
     <div class="section-inner">
 
         <div class="section-heading">
+
             <span class="section-label">
                 ABOUT US
             </span>
@@ -764,6 +909,7 @@
             <h2>
                 關於 <span>IT 洲際虎</span>
             </h2>
+
         </div>
 
 
@@ -783,6 +929,7 @@
                     每一位隊員都為團隊付出自己的力量。
                 </p>
 
+
                 <div class="about-highlight">
                     一起打球，一起成長，一起成為更好的自己。
                 </div>
@@ -794,7 +941,9 @@
 
                 <div class="about-box-content">
 
-                    <strong>IT</strong>
+                    <strong>
+                        IT
+                    </strong>
 
                     <span>
                         INTERCONTINENTAL TIGERS
