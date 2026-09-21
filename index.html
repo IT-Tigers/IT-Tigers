@@ -24,6 +24,7 @@
                 "Microsoft JhengHei",
                 Arial,
                 sans-serif;
+
             background: #f4f6f8;
             color: #172033;
         }
@@ -33,6 +34,7 @@
             color: inherit;
         }
 
+
         /* =========================
            NAV
         ========================= */
@@ -41,6 +43,7 @@
             position: fixed;
             top: 0;
             left: 0;
+
             width: 100%;
             height: 72px;
 
@@ -50,7 +53,7 @@
 
             padding: 0 50px;
 
-            background: rgba(7, 26, 51, 0.96);
+            background: rgba(7, 26, 51, 0.97);
 
             border-bottom: 1px solid rgba(244, 196, 0, 0.25);
 
@@ -60,12 +63,18 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+
+            gap: 10px;
 
             color: #ffffff;
 
             font-weight: 800;
+
             letter-spacing: 1px;
+
+            white-space: nowrap;
+
+            flex-shrink: 0;
         }
 
         .logo-image {
@@ -73,12 +82,15 @@
             height: 60px;
 
             object-fit: contain;
+
             display: block;
         }
 
         .logo-text {
             font-size: 21px;
+
             font-weight: 800;
+
             white-space: nowrap;
         }
 
@@ -86,32 +98,93 @@
             color: #f4c400;
         }
 
-        nav nav {
-            position: static;
-            width: auto;
-            height: auto;
 
-            padding: 0;
+        /* 桌機選單 */
 
-            background: transparent;
+        .nav-links {
+            display: flex;
+            align-items: center;
 
-            border: 0;
+            gap: 30px;
         }
 
-        nav > a:not(.logo) {
+        .nav-links a {
             color: #ffffff;
 
-            margin-left: 30px;
-
             font-size: 15px;
+
             font-weight: 600;
 
             transition: 0.25s;
+
+            white-space: nowrap;
         }
 
-        nav > a:not(.logo):hover {
+        .nav-links a:hover {
             color: #f4c400;
         }
+
+
+        /* 漢堡按鈕 */
+
+        .menu-toggle {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 0;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            position: relative;
+
+            flex-shrink: 0;
+        }
+
+        .menu-toggle span {
+            position: absolute;
+
+            left: 10px;
+
+            width: 24px;
+            height: 2px;
+
+            background: #ffffff;
+
+            transition: 0.3s;
+        }
+
+        .menu-toggle span:nth-child(1) {
+            top: 13px;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            top: 21px;
+        }
+
+        .menu-toggle span:nth-child(3) {
+            top: 29px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            top: 21px;
+
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            top: 21px;
+
+            transform: rotate(-45deg);
+        }
+
 
         /* =========================
            HERO
@@ -127,6 +200,7 @@
             justify-content: center;
 
             position: relative;
+
             overflow: hidden;
 
             background:
@@ -146,8 +220,6 @@
 
             text-align: center;
         }
-
-        /* 背景裝飾 */
 
         .hero::before {
             content: "";
@@ -185,9 +257,11 @@
 
         .hero-content {
             position: relative;
+
             z-index: 2;
 
             width: 100%;
+
             max-width: 900px;
 
             padding: 50px 20px;
@@ -197,23 +271,28 @@
             margin-bottom: 25px;
 
             display: flex;
+
             justify-content: center;
         }
 
         .hero-logo img {
             width: 180px;
+
             height: auto;
 
             display: block;
 
             filter:
-                drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+                drop-shadow(
+                    0 15px 25px rgba(0, 0, 0, 0.35)
+                );
         }
 
         .hero-kicker {
             margin-bottom: 12px;
 
             font-size: 15px;
+
             font-weight: 700;
 
             letter-spacing: 5px;
@@ -265,7 +344,9 @@
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
+
             gap: 15px;
 
             flex-wrap: wrap;
@@ -284,6 +365,7 @@
             border-radius: 6px;
 
             font-size: 16px;
+
             font-weight: 800;
 
             transition: 0.25s;
@@ -291,6 +373,7 @@
 
         .btn-primary {
             background: #f4c400;
+
             color: #071a33;
         }
 
@@ -313,8 +396,10 @@
 
         .btn-secondary:hover {
             background: #ffffff;
+
             color: #0b3a82;
         }
+
 
         /* =========================
            SECTION
@@ -326,6 +411,7 @@
 
         .container {
             width: 100%;
+
             max-width: 1100px;
 
             margin: 0 auto;
@@ -372,6 +458,7 @@
             background: #f4c400;
         }
 
+
         /* =========================
            ABOUT
         ========================= */
@@ -394,6 +481,7 @@
             min-height: 280px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -426,6 +514,7 @@
 
         .about-logo-box img {
             position: relative;
+
             z-index: 2;
 
             width: 150px;
@@ -455,6 +544,7 @@
 
             margin-bottom: 15px;
         }
+
 
         /* =========================
            NEWS
@@ -520,6 +610,7 @@
             font-size: 14px;
         }
 
+
         /* =========================
            CTA
         ========================= */
@@ -553,6 +644,7 @@
             margin-bottom: 30px;
         }
 
+
         /* =========================
            CONTACT
         ========================= */
@@ -568,6 +660,7 @@
 
             line-height: 2;
         }
+
 
         /* =========================
            FOOTER
@@ -585,8 +678,9 @@
             font-size: 13px;
         }
 
+
         /* =========================
-           MOBILE
+           MOBILE NAV
         ========================= */
 
         @media (max-width: 768px) {
@@ -597,6 +691,10 @@
                 padding: 0 14px;
             }
 
+            .logo {
+                gap: 7px;
+            }
+
             .logo-image {
                 width: 50px;
                 height: 50px;
@@ -604,14 +702,90 @@
 
             .logo-text {
                 font-size: 17px;
+
                 white-space: nowrap;
             }
 
-            nav > a:not(.logo) {
-                margin-left: 12px;
+            .nav-links {
+                position: absolute;
 
-                font-size: 13px;
+                top: 64px;
+
+                left: 0;
+
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+
+                background: #071a33;
+
+                border-top:
+                    1px solid rgba(
+                        244,
+                        196,
+                        0,
+                        0.2
+                    );
+
+                box-shadow:
+                    0 15px 30px rgba(0,0,0,0.25);
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                transform: translateY(-10px);
+
+                transition: 0.25s;
             }
+
+            .nav-links.active {
+                opacity: 1;
+
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                display: block;
+
+                width: 100%;
+
+                padding: 18px 22px;
+
+                border-bottom:
+                    1px solid rgba(
+                        255,
+                        255,
+                        255,
+                        0.08
+                    );
+
+                font-size: 15px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(
+                    244,
+                    196,
+                    0,
+                    0.08
+                );
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            /* HERO */
 
             .hero {
                 min-height: 700px;
@@ -639,45 +813,57 @@
                 font-size: 19px;
             }
 
+
+            /* ABOUT */
+
             .about-grid {
                 grid-template-columns: 1fr;
 
                 gap: 30px;
             }
 
+
+            /* NEWS */
+
             .news-grid {
                 grid-template-columns: 1fr;
             }
 
+
             section:not(.hero) {
                 padding: 70px 20px;
             }
+
         }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
 
         @media (max-width: 480px) {
 
             nav {
-                padding: 0 12px;
+                padding: 0 10px;
             }
 
             .logo {
-                gap: 7px;
+                gap: 6px;
             }
 
             .logo-image {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .logo-text {
                 font-size: 15px;
+
                 white-space: nowrap;
             }
 
-            nav > a:not(.logo) {
-                margin-left: 8px;
-
-                font-size: 12px;
+            .menu-toggle {
+                margin-right: -4px;
             }
 
             .hero-logo img {
@@ -711,12 +897,15 @@
             .about-logo-box {
                 min-height: 220px;
             }
+
         }
 
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================
          NAV
@@ -724,7 +913,10 @@
 
     <nav>
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
 
             <img
                 src="logo.png"
@@ -738,7 +930,13 @@
 
         </a>
 
-        <div>
+
+        <!-- 桌機 / 手機選單 -->
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
 
             <a href="#about">
                 關於我們
@@ -757,6 +955,22 @@
             </a>
 
         </div>
+
+
+        <!-- 手機漢堡 -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="開啟選單"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
 
     </nav>
 
@@ -778,22 +992,27 @@
 
             </div>
 
+
             <div class="hero-kicker">
                 IT BASEBALL TEAM
             </div>
+
 
             <h1>
                 洲際虎
             </h1>
 
+
             <div class="hero-en">
                 INTERCONTINENTAL TIGERS
             </div>
+
 
             <div class="hero-slogan">
                 不只是棒球隊，
                 <strong>更是一個團隊。</strong>
             </div>
+
 
             <div class="hero-buttons">
 
@@ -1044,6 +1263,72 @@
         © 2026 IT 洲際虎｜IT Tigers
 
     </footer>
+
+
+    <!-- =========================
+         MOBILE MENU JS
+    ========================= -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    navLinks.classList.toggle("active");
+
+                menuToggle.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
+
+            }
+        );
+
+
+        /* 點選選單後自動關閉 */
+
+        navLinks.querySelectorAll("a").forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
 
 </body>
 </html>
