@@ -911,88 +911,134 @@ section:not(.hero){
 
 .coach-card{
     background:#f4f6f8;
-
-    border:
-        1px solid #e1e6eb;
-
+    
+    border:1px solid #e1e6eb;
+    
     border-radius:10px;
-
-    padding:28px;
-
+    
+    padding:30px 30px 30px 34px;
+    
     position:relative;
-
+    
     overflow:hidden;
+    
+    transition:.25s;
 }
 
 .coach-card::before{
     content:"";
-
+    
     position:absolute;
-
+    
     left:0;
     top:0;
-
+    
     width:5px;
     height:100%;
-
+    
     background:#f4c400;
+    
+    transition:.25s;
+}
+
+.coach-card::after{
+    content:"";
+    
+    position:absolute;
+    
+    width:110px;
+    height:110px;
+    
+    right:-45px;
+    top:-45px;
+    
+    border:1px solid rgba(11,58,130,.10);
+    
+    border-radius:50%;
+}
+
+.coach-card:hover{
+    transform:translateY(-5px);
+    
+    border-color:#f4c400;
+    
+    background:#fff;
+    
+    box-shadow:0 12px 30px rgba(7,26,51,.08);
+}
+
+.coach-card:hover::before{
+    background:#0b3a82;
 }
 
 .coach-role{
-    font-size:13px;
-
-    font-weight:800;
-
-    color:#1565c0;
-
+    display:inline-block;
+    
+    padding:5px 10px;
+    
+    background:#0b3a82;
+    color:#fff;
+    
+    border-radius:4px;
+    
+    font-size:12px;
+    
+    font-weight:900;
+    
     letter-spacing:1px;
-
-    margin-bottom:7px;
+    
+    margin-bottom:12px;
 }
 
 .coach-name{
-    font-size:23px;
-
+    font-size:24px;
+    
     font-weight:900;
-
+    
     color:#0b3a82;
-
+    
     margin-bottom:12px;
 }
 
 .coach-desc{
     font-size:14px;
-
+    
     line-height:1.9;
-
+    
     color:#687386;
 }
 
 .assistant-list{
-    margin-top:10px;
-
+    margin-top:12px;
+    
     display:flex;
-
+    
     flex-wrap:wrap;
-
+    
     gap:8px;
 }
 
 .assistant-list span{
     padding:7px 11px;
-
+    
     background:#fff;
-
-    border:
-        1px solid #dde3e8;
-
+    
+    border:1px solid #dde3e8;
+    
     border-radius:5px;
-
+    
     font-size:13px;
-
+    
     color:#596273;
-
+    
     font-weight:700;
+    
+    transition:.2s;
+}
+
+.assistant-list span:hover{
+    border-color:#f4c400;
+    color:#0b3a82;
 }
 
 
