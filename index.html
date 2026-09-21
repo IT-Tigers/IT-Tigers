@@ -1,424 +1,714 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT 洲際虎｜洲際虎棒球隊</title>
 
-```
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <title>IT 洲際虎｜Intercontinental Tigers</title>
 
-    html {
-        scroll-behavior: smooth;
-    }
+    <meta name="description" content="IT 洲際虎｜不只是棒球隊，更是一個團隊。">
 
-    body {
-        font-family: Arial, "Microsoft JhengHei", sans-serif;
-        background: #0b0f0d;
-        color: #ffffff;
-        line-height: 1.6;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    /* ===== 導覽列 ===== */
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background: rgba(8, 12, 10, 0.92);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    .nav {
-        max-width: 1200px;
-        margin: auto;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 24px;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 900;
-        letter-spacing: 1px;
-    }
-
-    .logo-mark {
-        width: 42px;
-        height: 42px;
-        border: 2px solid #d6a93a;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #d6a93a;
-        font-size: 15px;
-    }
-
-    .logo-text {
-        font-size: 18px;
-    }
-
-    .logo-text span {
-        display: block;
-        color: #d6a93a;
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    nav {
-        display: flex;
-        gap: 28px;
-    }
-
-    nav a {
-        color: #ddd;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #d6a93a;
-    }
-
-    /* ===== Hero ===== */
-
-    .hero {
-        min-height: 100vh;
-        padding: 150px 24px 100px;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        background:
-            radial-gradient(circle at 80% 30%, rgba(214,169,58,0.15), transparent 30%),
-            radial-gradient(circle at 15% 70%, rgba(35,90,62,0.25), transparent 35%),
-            #0b0f0d;
-    }
-
-    .hero::before {
-        content: "TIGERS";
-        position: absolute;
-        right: -50px;
-        bottom: 0;
-        font-size: clamp(100px, 18vw, 280px);
-        font-weight: 900;
-        color: rgba(255,255,255,0.025);
-        line-height: 0.8;
-        pointer-events: none;
-    }
-
-    .hero-content {
-        max-width: 1200px;
-        width: 100%;
-        margin: auto;
-        position: relative;
-        z-index: 2;
-    }
-
-    .eyebrow {
-        color: #d6a93a;
-        font-size: 14px;
-        letter-spacing: 4px;
-        font-weight: bold;
-        margin-bottom: 18px;
-    }
-
-    .hero h1 {
-        font-size: clamp(58px, 10vw, 120px);
-        line-height: 0.9;
-        font-weight: 900;
-        letter-spacing: -4px;
-        margin-bottom: 28px;
-    }
-
-    .hero h1 span {
-        color: #d6a93a;
-    }
-
-    .hero-description {
-        max-width: 560px;
-        color: #b8beb9;
-        font-size: 18px;
-        margin-bottom: 35px;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        padding: 14px 26px;
-        border-radius: 4px;
-        font-weight: bold;
-        transition: 0.3s;
-        display: inline-block;
-    }
-
-    .btn-primary {
-        background: #d6a93a;
-        color: #10130f;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        background: #edc35a;
-    }
-
-    .btn-outline {
-        border: 1px solid #59615b;
-        color: white;
-    }
-
-    .btn-outline:hover {
-        border-color: #d6a93a;
-        color: #d6a93a;
-    }
-
-    /* ===== Section ===== */
-
-    section {
-        padding: 100px 24px;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: auto;
-    }
-
-    .section-label {
-        color: #d6a93a;
-        font-size: 12px;
-        letter-spacing: 3px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .section-title {
-        font-size: clamp(34px, 5vw, 58px);
-        line-height: 1;
-        margin-bottom: 45px;
-    }
-
-    /* ===== About ===== */
-
-    .about {
-        background: #101512;
-    }
-
-    .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-    }
-
-    .about-text {
-        color: #b8beb9;
-        font-size: 17px;
-    }
-
-    .about-text p {
-        margin-bottom: 18px;
-    }
-
-    .about-card {
-        border: 1px solid #29322d;
-        background: #151b17;
-        padding: 35px;
-    }
-
-    .about-card strong {
-        display: block;
-        color: #d6a93a;
-        font-size: 48px;
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-
-    .about-card span {
-        color: #aaa;
-    }
-
-    /* ===== News ===== */
-
-    .news-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .news-card {
-        background: #151b17;
-        border: 1px solid #29322d;
-        padding: 28px;
-        min-height: 220px;
-        transition: 0.3s;
-    }
-
-    .news-card:hover {
-        transform: translateY(-5px);
-        border-color: #d6a93a;
-    }
-
-    .news-date {
-        color: #d6a93a;
-        font-size: 13px;
-        margin-bottom: 18px;
-    }
-
-    .news-card h3 {
-        font-size: 22px;
-        margin-bottom: 12px;
-    }
-
-    .news-card p {
-        color: #9da59f;
-        font-size: 14px;
-    }
-
-    /* ===== CTA ===== */
-
-    .cta {
-        text-align: center;
-        background:
-            linear-gradient(rgba(16,21,18,0.9), rgba(16,21,18,0.95)),
-            #101512;
-    }
-
-    .cta h2 {
-        font-size: clamp(38px, 6vw, 70px);
-        margin-bottom: 20px;
-    }
-
-    .cta p {
-        color: #aab1ac;
-        margin-bottom: 30px;
-    }
-
-    /* ===== Footer ===== */
-
-    footer {
-        background: #070a08;
-        padding: 35px 24px;
-        border-top: 1px solid #1d241f;
-    }
-
-    .footer-inner {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .footer-inner p {
-        color: #737b75;
-        font-size: 13px;
-    }
-
-    /* ===== Mobile ===== */
-
-    @media (max-width: 768px) {
-
-        nav {
-            display: none;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                Arial,
+                sans-serif;
+            background: #f4f6f8;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           Navigation
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+            background: rgba(7, 26, 51, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(244, 196, 0, 0.25);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: #f4c400;
+            color: #071a33;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 19px;
+            font-weight: 1000;
+
+            transform: skew(-8deg);
+        }
+
+        .logo-text span {
+            color: #f4c400;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        nav a {
+            position: relative;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 3px;
+            background: #f4c400;
+            transition: 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #f4c400;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
         .hero {
-            padding-top: 130px;
+            min-height: 760px;
+            padding: 76px 24px 80px;
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #071a33 0%,
+                    #0b3a82 55%,
+                    #1565c0 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            right: -220px;
+            top: 40px;
+
+            border: 100px solid rgba(244, 196, 0, 0.08);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 180px;
+            left: -150px;
+            bottom: -70px;
+
+            background: rgba(244, 196, 0, 0.08);
+            transform: rotate(-12deg);
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            padding: 8px 16px;
+            margin-bottom: 22px;
+
+            background: #f4c400;
+            color: #071a33;
+
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 2px;
         }
 
         .hero h1 {
-            letter-spacing: -2px;
+            color: #ffffff;
+
+            font-size: clamp(64px, 10vw, 128px);
+            line-height: 0.95;
+
+            font-weight: 1000;
+            letter-spacing: -5px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #f4c400;
+        }
+
+        .hero-subtitle {
+            color: #ffffff;
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero-description {
+            color: rgba(255,255,255,0.78);
+            max-width: 580px;
+            font-size: 16px;
+            margin-bottom: 38px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 150px;
+            padding: 14px 26px;
+
+            font-size: 15px;
+            font-weight: 900;
+
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: #f4c400;
+            color: #071a33;
+        }
+
+        .btn-primary:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.8);
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #ffffff;
+            color: #0b3a82;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           Section
+        ========================= */
+
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            display: block;
+
+            color: #1565c0;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 3px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.15;
+            font-weight: 1000;
+            color: #071a33;
+        }
+
+        .section-heading h2 span {
+            color: #1565c0;
+        }
+
+        /* =========================
+           About
+        ========================= */
+
+        .about {
+            background: #ffffff;
         }
 
         .about-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #586273;
+            font-size: 17px;
+            margin-bottom: 22px;
+        }
+
+        .about-highlight {
+            margin-top: 30px;
+            padding: 22px 24px;
+
+            border-left: 5px solid #f4c400;
+            background: #f4f6f8;
+
+            font-size: 20px;
+            font-weight: 900;
+            color: #0b3a82;
+        }
+
+        .about-box {
+            min-height: 360px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b3a82,
+                    #071a33
+                );
+        }
+
+        .about-box::before {
+            content: "IT";
+
+            position: absolute;
+
+            font-size: 240px;
+            font-weight: 1000;
+            line-height: 1;
+
+            color: rgba(255,255,255,0.04);
+        }
+
+        .about-box-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .about-box-content strong {
+            display: block;
+
+            font-size: 74px;
+            line-height: 1;
+
+            color: #f4c400;
+            font-weight: 1000;
+        }
+
+        .about-box-content span {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        /* =========================
+           News
+        ========================= */
+
+        .news {
+            background: #f4f6f8;
         }
 
         .news-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border: 1px solid #e1e5ea;
+
+            transition: 0.25s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(7,26,51,0.10);
+        }
+
+        .news-card-top {
+            height: 8px;
+            background: #0b3a82;
+        }
+
+        .news-card:nth-child(2) .news-card-top {
+            background: #f4c400;
+        }
+
+        .news-card:nth-child(3) .news-card-top {
+            background: #1565c0;
+        }
+
+        .news-card-content {
+            padding: 28px;
+        }
+
+        .news-date {
+            color: #1565c0;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .news-card h3 {
+            color: #071a33;
+            font-size: 21px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .news-card p {
+            color: #687385;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 90px 24px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #0b3a82,
+                    #071a33
+                );
+        }
+
+        .cta-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #ffffff;
+            font-size: clamp(34px, 5vw, 58px);
+            font-weight: 1000;
+            margin-bottom: 15px;
+        }
+
+        .cta h2 span {
+            color: #f4c400;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 32px;
+        }
+
+        /* =========================
+           Contact
+        ========================= */
+
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-item {
+            padding: 30px;
+
+            background: #f4f6f8;
+            border-left: 5px solid #0b3a82;
+        }
+
+        .contact-item:nth-child(2) {
+            border-left-color: #f4c400;
+        }
+
+        .contact-item h3 {
+            color: #071a33;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item p {
+            color: #687385;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            background: #071a33;
+            color: rgba(255,255,255,0.65);
+            padding: 30px 24px;
         }
 
         .footer-inner {
-            flex-direction: column;
-            text-align: center;
-        }
-    }
-</style>
-```
+            max-width: 1200px;
+            margin: 0 auto;
 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .footer-logo {
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        .footer-logo span {
+            color: #f4c400;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           Mobile
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+                min-height: 70px;
+            }
+
+            .header-inner {
+                padding: 14px 18px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 700px;
+                padding-top: 150px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .hero {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .about-box {
+                min-height: 280px;
+            }
+
+            .about-box-content strong {
+                font-size: 58px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+<!-- =========================
+     Navigation
+========================= -->
+
 <header>
-    <div class="nav">
+    <div class="header-inner">
 
-```
-    <a href="#" class="logo">
-        <div class="logo-mark">IT</div>
-        <div class="logo-text">
-            洲際虎
-            <span>IT TIGERS</span>
-        </div>
-    </a>
+        <a href="index.html" class="logo">
+            <div class="logo-mark">IT</div>
 
-    <nav>
-    <a href="#about">關於我們</a>
-    <a href="events.html">活動行程</a>
-    <a href="#news">最新消息</a>
-    <a href="#contact">聯絡我們</a>
-</nav>
+            <div class="logo-text">
+                洲際<span>虎</span>
+            </div>
+        </a>
 
-</div>
-```
+        <nav>
+            <a href="#about">關於我們</a>
+            <a href="events.html">活動行程</a>
+            <a href="#news">最新消息</a>
+            <a href="#contact">聯絡我們</a>
+        </nav>
 
+    </div>
 </header>
 
-<main>
 
-```
-<!-- Hero -->
+<!-- =========================
+     Hero
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-inner">
 
-        <div class="eyebrow">
+        <div class="hero-label">
             INTERCONTINENTAL TIGERS
         </div>
 
         <h1>
-            IT<br>
+            IT
             <span>洲際虎</span>
         </h1>
 
+        <div class="hero-subtitle">
+            不只是棒球隊，更是一個團隊。
+        </div>
+
         <p class="hero-description">
-            以棒球為信念，從球場開始，
-            培養團隊、紀律與永不放棄的精神。
+            熱愛棒球、相信團隊、持續突破。
+            這裡是 IT 洲際虎，記錄我們每一次比賽、
+            每一次練習，以及一起成長的每一刻。
         </p>
 
         <div class="hero-buttons">
@@ -426,8 +716,8 @@
                 認識洲際虎
             </a>
 
-            <a href="#news" class="btn btn-outline">
-                最新消息
+            <a href="events.html" class="btn btn-outline">
+                查看活動行程
             </a>
         </div>
 
@@ -436,48 +726,59 @@
 </section>
 
 
-<!-- About -->
+<!-- =========================
+     About
+========================= -->
 
 <section class="about" id="about">
 
-    <div class="container">
+    <div class="section-inner">
 
-        <div class="section-label">
-            ABOUT US
+        <div class="section-heading">
+            <span class="section-label">
+                ABOUT US
+            </span>
+
+            <h2>
+                關於 <span>IT 洲際虎</span>
+            </h2>
         </div>
 
-        <h2 class="section-title">
-            不只是棒球隊<br>
-            更是一個團隊。
-        </h2>
 
         <div class="about-grid">
 
             <div class="about-text">
 
                 <p>
-                    IT 洲際虎是一支以棒球運動為核心的團隊。
+                    IT 洲際虎是一個以棒球為核心的團隊。
+                    我們相信，棒球不只是場上的勝負，
+                    更重要的是一起練習、一起面對挑戰，
+                    並在團隊中不斷成長。
                 </p>
 
                 <p>
-                    我們相信棒球不只是比賽，
-                    更是學習合作、責任、紀律與堅持的過程。
+                    從每一次練習到每一場比賽，
+                    每一位隊員都為團隊付出自己的力量。
                 </p>
 
-                <p>
-                    從每一次訓練、每一個守備、
-                    每一次打擊開始，累積屬於我們的故事。
-                </p>
+                <div class="about-highlight">
+                    一起打球，一起成長，一起成為更好的自己。
+                </div>
 
             </div>
 
-            <div class="about-card">
 
-                <strong>IT</strong>
+            <div class="about-box">
 
-                <span>
-                    INTERCONTINENTAL TIGERS
-                </span>
+                <div class="about-box-content">
+
+                    <strong>IT</strong>
+
+                    <span>
+                        INTERCONTINENTAL TIGERS
+                    </span>
+
+                </div>
 
             </div>
 
@@ -488,72 +789,97 @@
 </section>
 
 
-<!-- News -->
+<!-- =========================
+     News
+========================= -->
 
-<section id="news">
+<section class="news" id="news">
 
-    <div class="container">
+    <div class="section-inner">
 
-        <div class="section-label">
-            LATEST NEWS
+        <div class="section-heading">
+
+            <span class="section-label">
+                LATEST NEWS
+            </span>
+
+            <h2>
+                最新<span>消息</span>
+            </h2>
+
         </div>
 
-        <h2 class="section-title">
-            最新消息
-        </h2>
 
         <div class="news-grid">
 
             <article class="news-card">
 
-                <div class="news-date">
-                    2026.09
+                <div class="news-card-top"></div>
+
+                <div class="news-card-content">
+
+                    <div class="news-date">
+                        IT TIGERS
+                    </div>
+
+                    <h3>
+                        歡迎來到 IT 洲際虎
+                    </h3>
+
+                    <p>
+                        我們的新網站正式上線，
+                        未來將持續記錄球隊活動與精彩時刻。
+                    </p>
+
                 </div>
-
-                <h3>
-                    洲際虎網站正式啟動
-                </h3>
-
-                <p>
-                    IT 洲際虎官方網站正式上線，
-                    未來將持續更新球隊最新消息與活動。
-                </p>
 
             </article>
 
 
             <article class="news-card">
 
-                <div class="news-date">
-                    TEAM
+                <div class="news-card-top"></div>
+
+                <div class="news-card-content">
+
+                    <div class="news-date">
+                        TEAM
+                    </div>
+
+                    <h3>
+                        團隊活動持續進行中
+                    </h3>
+
+                    <p>
+                        查看最新活動與練習安排，
+                        掌握 IT 洲際虎的最新行程。
+                    </p>
+
                 </div>
-
-                <h3>
-                    團隊訓練
-                </h3>
-
-                <p>
-                    持續透過訓練提升球員的基本功、
-                    團隊默契與比賽能力。
-                </p>
 
             </article>
 
 
             <article class="news-card">
 
-                <div class="news-date">
-                    GAME
+                <div class="news-card-top"></div>
+
+                <div class="news-card-content">
+
+                    <div class="news-date">
+                        BASEBALL
+                    </div>
+
+                    <h3>
+                        每一次練習都是成長
+                    </h3>
+
+                    <p>
+                        場上的每一球，
+                        都是我們持續進步的累積。
+                    </p>
+
                 </div>
-
-                <h3>
-                    賽事紀錄
-                </h3>
-
-                <p>
-                    未來將在這裡整理洲際虎的
-                    比賽成績與賽事資訊。
-                </p>
 
             </article>
 
@@ -564,46 +890,104 @@
 </section>
 
 
-<!-- CTA -->
+<!-- =========================
+     CTA
+========================= -->
 
-<section class="cta" id="contact">
+<section class="cta">
 
-    <div class="container">
+    <div class="cta-inner">
 
         <h2>
-            PLAY TOGETHER.
+            一起加入 <span>IT 洲際虎</span>
         </h2>
 
         <p>
-            IT 洲際虎｜一起在球場上成長。
+            關注我們的活動，一起記錄屬於團隊的每一個時刻。
         </p>
 
-        <a href="#" class="btn btn-primary">
-            IT TIGERS
+        <a href="events.html" class="btn btn-primary">
+            查看活動行程
         </a>
 
     </div>
 
 </section>
-```
 
-</main>
+
+<!-- =========================
+     Contact
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CONTACT
+            </span>
+
+            <h2>
+                聯絡<span>我們</span>
+            </h2>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div class="contact-item">
+
+                <h3>
+                    IT 洲際虎
+                </h3>
+
+                <p>
+                    Intercontinental Tigers
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <h3>
+                    球隊資訊
+                </h3>
+
+                <p>
+                    更多球隊資訊與活動內容，
+                    敬請持續關注 IT 洲際虎。
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     Footer
+========================= -->
 
 <footer>
 
-```
-<div class="footer-inner">
+    <div class="footer-inner">
 
-    <p>
-        © 2026 IT Tigers. All Rights Reserved.
-    </p>
+        <div class="footer-logo">
+            IT <span>洲際虎</span>
+        </div>
 
-    <p>
-        IT 洲際虎
-    </p>
+        <p>
+            © 2026 IT Intercontinental Tigers. All Rights Reserved.
+        </p>
 
-</div>
-```
+    </div>
 
 </footer>
 
