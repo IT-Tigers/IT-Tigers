@@ -1183,6 +1183,43 @@ section:not(.hero){
 }
 
 
+
+/* =========================
+   NEWS DYNAMIC STATES
+========================= */
+
+.news-loading,
+.news-empty,
+.news-error{
+    grid-column:1 / -1;
+    text-align:center;
+    padding:30px;
+    color:#687386;
+}
+
+.news-error{
+    color:#8a5a00;
+    background:rgba(244,196,0,.10);
+    border:1px solid rgba(244,196,0,.35);
+    border-radius:10px;
+}
+
+.news-category{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:5px 9px;
+    border-radius:4px;
+    background:#0b3a82;
+    color:#fff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.news-card .news-date{
+    margin-bottom:8px;
+}
+
 /* =========================
    CTA / JOIN
 ========================= */
@@ -2427,7 +2464,6 @@ class="news"
 
 <div class="container">
 
-
 <div class="section-title">
 
 <span class="en">
@@ -2440,78 +2476,14 @@ LATEST NEWS
 
 </div>
 
-
-<div class="news-grid">
-
-
-<div class="news-card">
-
-<div class="news-date">
-TEAM
-</div>
-
-<h3>
-每週訓練資訊
-</h3>
-
-<p>
-每週訓練時間與場地，
-由教練依照球隊安排公布。
-</p>
-
-</div>
-
-
-
-<div class="news-card">
-
-<div class="news-date">
-EVENTS
-</div>
-
-<h3>
-球隊活動
-</h3>
-
-<p>
-練習、比賽與團隊活動，
-歡迎查看最新活動行程。
-</p>
-
-<a
-href="events.html"
-class="btn btn-primary"
-style="
-margin-top:18px;
-min-width:120px;
-padding:10px 18px;
-font-size:14px;
-"
+<div
+class="news-grid"
+id="newsGrid"
 >
-查看行程
-</a>
 
+<div class="news-loading">
+正在載入最新消息…
 </div>
-
-
-
-<div class="news-card">
-
-<div class="news-date">
-JOIN US
-</div>
-
-<h3>
-歡迎加入洲際虎
-</h3>
-
-<p>
-男生、女生皆可報名，
-依照年級加入適合的球隊班別。
-</p>
-
-</div>
-
 
 </div>
 
@@ -2679,6 +2651,275 @@ menuToggle.setAttribute(
 
 </script>
 
+
+
+<!-- =========================
+     NEWS CSV
+========================= -->
+
+<script>
+
+const NEWS_CSV_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRL0a83NeFlruconqhLBBfrnq8SwnVUAZ0pMDoRcaPTlUK5Sommhpq82NgP9n5a1RLdMi7zvdjfdrK0/pub?gid=870187364&single=true&output=csv";
+
+const newsGrid =
+document.getElementById("newsGrid");
+
+
+function parseCSV(text){
+
+    const rows = [];
+
+    let row = [];
+    let cell = "";
+    let inQuotes = false;
+
+    for(let i = 0; i < text.length; i++){
+
+        const char = text[i];
+        const next = text[i + 1];
+
+        if(char === '"' && inQuotes && next === '"'){
+            cell += '"';
+            i++;
+            continue;
+        }
+
+        if(char === '"'){
+            inQuotes = !inQuotes;
+            continue;
+        }
+
+        if(char === "," && !inQuotes){
+            row.push(cell);
+            cell = "";
+            continue;
+        }
+
+        if((char === "\n" || char === "\r") && !inQuotes){
+
+            if(char === "\r" && next === "\n"){
+                i++;
+            }
+
+            row.push(cell);
+            cell = "";
+
+            if(row.some(value => value.trim() !== "")){
+                rows.push(row);
+            }
+
+            row = [];
+            continue;
+        }
+
+        cell += char;
+    }
+
+    row.push(cell);
+
+    if(row.some(value => value.trim() !== "")){
+        rows.push(row);
+    }
+
+    return rows;
+}
+
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function formatDate(value){
+
+    if(!value) return "";
+
+    return String(value)
+        .replace(/-/g, "/")
+        .trim();
+
+}
+
+
+function dateValue(value){
+
+    const match =
+        String(value)
+            .trim()
+            .match(/^(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+
+    if(!match){
+        return 0;
+    }
+
+    return new Date(
+        Number(match[1]),
+        Number(match[2]) - 1,
+        Number(match[3])
+    ).getTime();
+
+}
+
+
+function categoryLabel(value){
+
+    const category =
+        String(value || "")
+            .trim()
+            .toUpperCase();
+
+    return category || "NEWS";
+
+}
+
+
+async function loadNews(){
+
+    try{
+
+        const response =
+            await fetch(
+                NEWS_CSV_URL,
+                { cache:"no-store" }
+            );
+
+        if(!response.ok){
+            throw new Error(
+                "無法取得最新消息資料"
+            );
+        }
+
+        const csv =
+            await response.text();
+
+        const rows =
+            parseCSV(csv);
+
+        if(rows.length < 2){
+
+            newsGrid.innerHTML =
+                '<div class="news-empty">目前沒有最新消息</div>';
+
+            return;
+        }
+
+        const headers =
+            rows[0].map(
+                header => header.trim()
+            );
+
+        const dateIndex =
+            headers.indexOf("日期");
+
+        const titleIndex =
+            headers.indexOf("標題");
+
+        const contentIndex =
+            headers.indexOf("內容");
+
+        const categoryIndex =
+            headers.indexOf("類別");
+
+        if(
+            dateIndex === -1 ||
+            titleIndex === -1 ||
+            contentIndex === -1 ||
+            categoryIndex === -1
+        ){
+
+            throw new Error(
+                "最新消息欄位名稱不正確"
+            );
+
+        }
+
+        const news =
+            rows
+                .slice(1)
+                .map(row => ({
+                    date:row[dateIndex] || "",
+                    title:row[titleIndex] || "",
+                    content:row[contentIndex] || "",
+                    category:row[categoryIndex] || ""
+                }))
+                .filter(item =>
+                    item.title.trim() ||
+                    item.content.trim()
+                )
+                .sort(
+                    (a,b) =>
+                        dateValue(b.date) -
+                        dateValue(a.date)
+                )
+                .slice(0,3);
+
+        if(news.length === 0){
+
+            newsGrid.innerHTML =
+                '<div class="news-empty">目前沒有最新消息</div>';
+
+            return;
+        }
+
+        newsGrid.innerHTML =
+            news.map(item => {
+
+                return `
+                    <div class="news-card">
+
+                        <div class="news-category">
+                            ${escapeHTML(
+                                categoryLabel(
+                                    item.category
+                                )
+                            )}
+                        </div>
+
+                        <div class="news-date">
+                            ${escapeHTML(
+                                formatDate(item.date)
+                            )}
+                        </div>
+
+                        <h3>
+                            ${escapeHTML(item.title)}
+                        </h3>
+
+                        <p>
+                            ${escapeHTML(item.content)}
+                        </p>
+
+                    </div>
+                `;
+
+            }).join("");
+
+    }catch(error){
+
+        console.error(
+            "NEWS CSV ERROR:",
+            error
+        );
+
+        newsGrid.innerHTML =
+            '<div class="news-error">最新消息暫時無法載入，請稍後再試。</div>';
+
+    }
+
+}
+
+
+loadNews();
+
+</script>
 
 </body>
 </html>
